@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title> All Dealer </title>
+	</head>
+	
+	<body>	
+		<h3> List All Dealer </h3><br>
+		
+	    <div th:each="dealer: ${dealerCarMap}">
+		    <tr  th:if="${dealer.value == '[]'}">
+		     	<td th:text="${dealer.key}" />
+		     	<td>Dealer tidak jual mobil </td>
+		    </tr><br>
+		    
+		    <tr th:if="${dealer.value != '[]'}">
+		     	<td th:text="${dealer.key}" />
+		     	<td th:text="${dealer.value}" /><br>
+		    </tr><br>
+		</div>
+		
+		<a th:href="@{/}">
+			<button type="submit"> Kembali </button>
+		</a>
+		
+	</body>
+</html>
